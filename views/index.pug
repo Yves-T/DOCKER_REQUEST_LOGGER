@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title The last 25 requests
+        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous")
+    body
+    .container
+
+-function prettyDate(dateString){
+    -var date = new Date(parseInt(dateString));
+    -var d = date.getDate();
+    -var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+    -var m = monthNames[date.getMonth()];
+    -var y = date.getFullYear();
+    -var h = date.getHours();
+    -var min = date.getMinutes();
+    -return  h + ':' + min + ' ' + d +' ' + m + ' ' + y;
+-}
+
+
+        h1 Welcome to the NodeJs sample app on docker
+        h2 The last 25 requests
+        
+        table.table
+            thead
+                tr
+                    th(scope="col") Requested at
+                    th(scope="col") ip
+                    th(scope="col") hostname
+                    th(scope="col") path
+            
+            tbody
+                each val in ips
+                    tr
+                        //- td #{val.requested_at}
+                        td #{prettyDate(val.requested_at)}
+                        td #{val.ip}
+                        td #{val.host}
+                        td #{val.path}
