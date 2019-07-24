@@ -11,4 +11,4 @@ chmod +x load_balancer/start.sh
 docker-compose up
 ```
 
-And point browser to this [url](http://localhost:8080/)
+And point your browser to this [url](http://localhost:8080/)
